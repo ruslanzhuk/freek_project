@@ -1,0 +1,53 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+.container_my {
+    margin: 0 auto !important;
+    width: 95% !important;
+}
+
+#page {
+    height: 100%;
+}
+
+#header {
+    background: #4f5f5f !important;
+    width: 100%;
+}
+
+#header nav {
+    display: flex;
+    height: 20%;
+    padding: 20px !important;
+    width: 100%;
+}
+
+#header nav div {
+    display: flex;
+    width: 100%;
+}
+
+#header nav a {
+    display: flex;
+}
+
+#header nav ul {
+    display: flex;
+}
+
+#header nav ul li {
+    display: inline-block;
+    margin: 2px 13px;
+    padding: 10px;
+}
+
+#header nav ul li a {
+    color: orange;
+    font-size: 21px;
+    font-weight: bold;
+}
