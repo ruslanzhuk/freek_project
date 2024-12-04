@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('author_id')->unsigned();
+            $table->unsignedInteger('author_id');
             $table->foreign('author_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('title');
             $table->text('content');
             $table->json('media')->nullable();
+            $table->enum('comments_type', ['published', 'only_friends', 'unpublished'])->default('published');
             $table->datetime('posted_at');
             $table->timestamps();
         });

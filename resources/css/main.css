@@ -12,42 +12,88 @@ body {
 }
 
 #page {
-    height: 100%;
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
 }
 
 #header {
     background: #4f5f5f !important;
-    width: 100%;
+    margin-bottom: 35px !important;
+    width: 100% !important;
 }
 
 #header nav {
-    display: flex;
-    height: 20%;
+    background: none !important;
+    display: flex !important;
+    height: 20% !important;
+    justify-content: space-around !important;
     padding: 20px !important;
-    width: 100%;
+    width: 100% !important;
 }
 
-#header nav div {
-    display: flex;
-    width: 100%;
+#header nav .full_header {
+    display: flex !important;
+    justify-content: space-around !important;
+    width: 100% !important;
 }
 
 #header nav a {
-    display: flex;
+    display: flex !important;
 }
 
 #header nav ul {
-    display: flex;
+    display: flex !important;
+    margin: 0 auto !important;
+    width: 70% !important;
 }
 
 #header nav ul li {
-    display: inline-block;
-    margin: 2px 13px;
-    padding: 10px;
+    display: inline-block !important;
+    margin: 2px 13px !important;
+    padding: 10px !important;
 }
 
 #header nav ul li a {
-    color: orange;
-    font-size: 21px;
-    font-weight: bold;
+    color: orange !important;
+    font-size: 21px !important;
+    font-weight: bold !important;
+}
+
+#header nav .auth_user {
+    width: 15% !important;
+}
+
+#header nav .auth_user form {
+    display: flex !important;
+}
+
+#header nav .auth_user a, .auth_user form button {
+    color: white !important;
+    font-size: 17px !important;
+    font-weight: lighter !important;
+    margin: auto 2px !important;
+    padding: 4px 9px !important;
+    transition: 0.7s !important;
+}
+
+#header nav .auth_user a:hover {
+    background: orangered !important;
+    color: black !important;
+    transition: 0.7s !important;
+}
+
+.content {
+    flex: 1 !important;
+}
+
+.content .post-card {
+    background: dodgerblue !important;
+    cursor: pointer !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    height: 200px !important;
+    margin: 6px 11px !important;
+    padding: 5px 10px !important;
+    width: 410px !important;
 }

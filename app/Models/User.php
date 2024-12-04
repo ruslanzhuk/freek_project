@@ -1,5 +1,9 @@
 <?php
 
+/*Ця модель представляє користувача в системі.
+Тут зазначені поля які можуть заповнюватися через форму, та методи що відносяться до самих користувачів
+Короче усе що є в базі данних , все з чим можна взаємодіяти саме у зв'язку з користувачами*/
+
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -45,4 +49,20 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function avatars()
+    {
+        return $this->hasMany(Avatar::class);
+    }
+
+    public function isFriendWith(User $user)
+    {
+        return $this->friends()->where('friend_id', $user->id)->exists();
+    }
+
+    public function friends()
+    {
+        return $this->belongsToMany(User::class, 'friends', 'user_id', 'friend_id');
+    }
+
 }

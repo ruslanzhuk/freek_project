@@ -1,10 +1,18 @@
 <?php
 
+/*
+ * Контролер для автентифікації користувачів.
+ *
+ * Цей контролер забезпечує базову функціональність: Відображення форми входу.
+ * Обробка запитів на вхід до системи. Завершення сеансу користувача - вихід.
+ */
+
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 
 class LoginController extends Controller
 {
@@ -31,7 +39,7 @@ class LoginController extends Controller
         // Attempt to log the user in
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
             // If successful, redirect to the intended page or dashboard
-            return redirect()->intended(route('dashboard'));
+            return redirect()->intended();
         }
 
         // If unsuccessful, redirect back with an error message

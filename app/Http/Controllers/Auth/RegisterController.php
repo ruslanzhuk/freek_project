@@ -1,5 +1,11 @@
 <?php
 
+/*
+ * Контролер що відповідає за реєстрацію
+ * Має такі методи: висвітлення форми до реєстровання нового користувача,
+ * реєстрація нового користувача з валідацією усіх параметрів що передадуться та записання до бази данних -
+ * редірект на головну сторінку вже як залогований користувач.*/
+
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
@@ -15,6 +21,12 @@ class RegisterController extends Controller
         $title = "Register";
         return view('auth.register', ['title' => $title]);
     }
+
+    /**
+     * Реєстрація нового користувача.
+     * @param Request $request HTTP-запит, що містить дані форми реєстрації.
+     * @return \Illuminate\Http\RedirectResponse Перенаправлення на попередню сторінку у разі помилки або на головну сторінку після успішної реєстрації.
+     */
 
     public function register(Request $request)
     {

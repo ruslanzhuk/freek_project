@@ -12,7 +12,7 @@
 
     <!-- Styles / Scripts -->
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-        @vite(['resources/css/app.css', 'resources/css/main.css', 'resources/js/app.js'])
+        @vite(['resources/css/app.css', 'resources/css/main.css', 'resources/js/app.js', 'resources/js/custom.js'])
     @else
         <style>
             body {background: red; font-family: Arial, sans-serif; width: 100%;}
@@ -23,39 +23,42 @@
 
 </head>
 <style>
-    #page {
+    .content .post-full {
+        background: dodgerblue;
+        padding: 20px 10px;
+    }
+
+    .content .post-full .description {
+        background: white;
+        border: 1px solid rgba(111, 111, 111, 0.4);
+        box-shadow: 0 2px 10px rgba(200, 160, 200, 0.5);
+        padding: 2px 4px;
+    }
+
+    .form {
+        margin: 0 auto;
+        padding: 20px 30px;
+    }
+
+    .form input {
+        border: 3px solid #6264b1;
+        border-radius: 10px;
+        margin: 10px 3px;
+        padding: 3px 5px;
+    }
+
+    .my_page {
         display: flex;
         flex-direction: column;
     }
 
-    #header {
-        margin-bottom: 35px;
+    .my_page .avatar {
+        border-radius: 50%;
+        display: block;
+        height: 1%;
+        width: 7%;
     }
 
-    #header nav div {
-        justify-content: space-around;
-    }
-
-    #header nav ul {
-        margin: 0 auto;
-        width: 70%;
-    }
-
-    #header nav .auth_user {
-        width: 15%;
-    }
-
-    #header nav .auth_user a {
-        color: white;
-        font-size: 17px;
-        font-weight: lighter;
-        margin: auto 2px;
-        padding: 4px 9px;
-    }
-
-    .content {
-        flex: 1;
-    }
 </style>
 <body>
 
@@ -63,7 +66,7 @@
     <header id="header">
         <div class="container_my">
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                <div>
+                <div class="full_header">
                     <a class="navbar-brand" href="{{ route('main.index') }}">FREEK</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -76,7 +79,7 @@
                             <a class="nav-link active" aria-current="page" href="{{ route('main.reals') }}">Reals</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{{ route('main.settings') }}">Settings</a>
+                            <a class="nav-link active" aria-current="page" href="{{ route('home.index') }}">Home</a>
                         </li>
                     </ul>
                     <div class="auth_user">
@@ -90,7 +93,7 @@
                         @auth
                             <form method="POST" action="{{ route('auth.logout') }}">
                                 @csrf
-                                <button type="submit" class="nav-link btn btn-link" style="display: inline; padding: 0; border: none; background: none;">Log Out</button>
+                                <button type="submit" class="nav-link btn btn-link" style="display: inline; border: none; background: none;">Log Out</button>
                             </form>
                         @endauth
                     </div>
